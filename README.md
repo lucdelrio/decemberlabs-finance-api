@@ -15,9 +15,10 @@ Things you may want to cover:
 
 * Database creation
 
-sudo -u postgres createuser --superuser decemberlabs
+create role decemberlabs with superuser;
 
-rails db:create
+rails db:setup
+rails db:migrate
 
 * Database initialization
 
@@ -29,18 +30,4 @@ rails db:create
 
 * ...
 
-https://sourcey.com/articles/building-the-perfect-rails-api
 
-DROP DB
-sudo -u lucdelrio dropdb decemberlabs-finance-api_development
-
-CREATE DB USER
-<!-- create role decemberlabs with createdb login password 'aqwe123'; -->
-create role decemberlabs with superuser;
-
-GRANT ALL PRIVILEGES ON DATABASE template0 to root;
-
-\du
-\l
-
-bin/rails g model Supplier name:string
