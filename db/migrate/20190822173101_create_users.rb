@@ -6,8 +6,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer     :idcard
       t.datetime    :deleted_at
 
-
-
       t.timestamps
     end
   end
