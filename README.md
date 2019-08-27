@@ -1,33 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
 
 2.6.1
 
-* System dependencies
-
-* Configuration
-
 * Database creation
+
+Using postgres v11.2 SQL database
 
 create role decemberlabs with superuser;
 
 rails db:setup
-rails db:migrate
 
-* Database initialization
+* Postman collection to test the API
 
-* How to run the test suite
+https://www.getpostman.com/collections/50af055c1a4cabfe3d50
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Limitations and improvements
 
 
