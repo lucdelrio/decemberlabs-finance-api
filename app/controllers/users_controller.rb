@@ -1,21 +1,32 @@
 class UsersController < ApplicationController
   def transfer
-    source_user = User.find source_user
+    target_user = User.find params[:target_user]
+    account = target_user.bank_accounts.first
+    amount = params[:amount]
+    process_transfer(user, amount,account)
+    return render json: request_errors, status: :bad_request if request_errors.present?
+    render json: { new_ballance: user.bank_accounts.first.currency.amount }, status: :ok
+  end
 
+  private
 
-    # objetivo
-    user_params[:target_user]
-    target_user = User.find user_params[:target_user]
+  def user
+    @user ||= User.find(params[:user_id])
+  end
 
-    # a transferir
-    user_params[:amount]
-    # user_params[:account_name]
+  def process_transfer(user, amount, account)
+    user.bank_accounts.first.transfer_money(amount, account)
+  end
 
-    # tipo de moneda
-    user_params[:currency_type]
+  def request_errors
+    errors = []
+    errors << 'The amount must be positive' if params['amount'] < 1
+    errors << 'The account currencies must be diferent' if same_currencies?
+    errors
+  end
 
-    
-
-    moneda origen diff moneda dest
+  def same_currencies?
+    target_user = User.find params[:target_user]
+    user.bank_accounts.first.currency.id == target_user.bank_accounts.first.currency.id 
   end
 end
