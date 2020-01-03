@@ -1,4 +1,4 @@
-# Decemberlabs-finance-api
+# Decemberlabs finance api
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/a650eaf8d956f34792ca/maintainability)](https://codeclimate.com/github/lucdelrio/decemberlabs-finance-api/maintainability)
 
